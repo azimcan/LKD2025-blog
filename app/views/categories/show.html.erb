@@ -1,0 +1,8 @@
+<div class="flex flex-col gap-4">
+  <li><%= @category.title %></li>
+
+  <div class="flex gap-4">
+    <%= link_to "Edit", edit_category_path(@category) %>
+    <%= button_to "Destroy", category_path(@category), method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+  </div>
+</div>

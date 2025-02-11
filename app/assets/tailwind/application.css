@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+.notice {
+  @apply bg-green-500;
+}
+
+.alert {
+  @apply bg-red-500;
+}

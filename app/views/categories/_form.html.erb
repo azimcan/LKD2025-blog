@@ -1,0 +1,14 @@
+<%= form_with model: category, class: "flex flex-col gap-4" do |form| %>
+  <ul>
+    <% category.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "border border-gray-300 rounded-md p-2" %>
+  </div>
+
+  <%= form.submit class: "bg-green-500 text-white p-2 rounded-md" %>
+<% end %>
