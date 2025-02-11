@@ -1,12 +1,14 @@
-<header class="container flex justify-between mx-auto p-4">
-  <h1 class="flex-1">Blog</h1>
+<header class="flex justify-between items-center container mx-auto px-5 py-4 shadow rounded-b-md">
+  <h1 class="text-2xl font-bold">
+    <%= link_to "Blog", root_path %>
+  </h1>
 
-  <nav class="flex gap-4">
+  <nav class="flex items-center gap-4">
     <% if authenticated? %>
-      <%= link_to "Categories", categories_path, class: "underline hover:no-underline text-blue-500" %>
-      <%= button_to "Logout", session_path, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "underline hover:no-underline text-red-500" %>
+      <%= link_to "Categories", categories_path, class: "text-gray-500 hover:text-gray-700 underline hover:no-underline" %>
+      <%= button_to "Logout", session_path, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "text-red-500 hover:text-gray-700 underline hover:no-underline cursor-pointer" %>
     <% else %>
-      <%= link_to "Login", new_session_path, class: "underline hover:no-underline text-blue-500" %>
+      <%= link_to "Login", new_session_path, class: "text-gray-500 hover:text-gray-700 underline hover:no-underline" %>
     <% end %>
   </nav>
 </header>

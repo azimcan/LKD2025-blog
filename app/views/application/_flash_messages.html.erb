@@ -1,5 +1,7 @@
-<% flash.each do |type, message| %>
-  <div class="text-white p-2 rounded-md <%= type %>">
-    <%= message %>
-  </div>
-<% end %>
+<div id="flash_messages" class="flex flex-col items-center justify-center fixed top-2 w-full">
+  <% flash.each do |type, message| %>
+    <div class="p-4 mb-4 text-sm <%= type %> rounded-lg">
+      <%= message %>
+    </div>
+  <% end %>
+</div>

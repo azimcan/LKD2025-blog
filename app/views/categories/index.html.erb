@@ -1,13 +1,15 @@
-<div class="flex flex-col gap-4">
-  <div class="flex justify-between w-full">
-    <h1 class="font-bold text-4xl flex-1">Categories</h1>
+<div class="flex flex-col gap-4 w-full">
+  <div class="flex justify-between items-center w-full">
+    <h1 class="font-bold text-4xl">Categories</h1>
 
-    <div>
-      <%= link_to "New Category", new_category_path, class: "underline hover:no-underline text-blue-500" %>
-    </div>
+    <%= link_to "New category", new_category_path, class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
   </div>
 
-  <ul>
-    <%= render @categories %>
-  </ul>
+  <div id="categories" class="min-w-full flex flex-col gap-4">
+    <% if @categories.any? %>
+      <%= render @categories %>
+    <% else %>
+      <p class="text-center my-10">No categories found.</p>
+    <% end %>
+  </div>
 </div>
