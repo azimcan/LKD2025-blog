@@ -3,7 +3,7 @@ module Authentication
 
   included do
     before_action :require_authentication
-    helper_method :authenticated?
+    helper_method :authenticated?, :authenticated_and_authorized?
   end
 
   class_methods do
@@ -13,6 +13,10 @@ module Authentication
   end
 
   private
+    def authenticated_and_authorized?(record)
+      authenticated? && record.user == Current.user
+    end
+
     def authenticated?
       resume_session
     end

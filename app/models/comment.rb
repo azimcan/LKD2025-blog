@@ -3,5 +3,5 @@ class Comment < ApplicationRecord
   belongs_to :post
 
   MAX_CONTENT_LENGTH = 256
-  validates :content, presence: true, length: { minimum: MAX_CONTENT_LENGTH }
+  validates :content, presence: true, length: { maximum: MAX_CONTENT_LENGTH }
 end

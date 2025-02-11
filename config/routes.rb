@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  resources :posts
-  resources :categories, only: [ :index, :new, :create, :edit, :update, :destroy ]
+  resources :posts do
+    resources :comments, except: [ :index, :show ]
+  end
+
+  resources :categories, except: :show
   resource :session
   resources :passwords, param: :token
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
