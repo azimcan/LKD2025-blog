@@ -22,11 +22,11 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="bg-gray-50">
     <%= render "flash_messages" %>
     <%= render "header" %>
 
-    <main class="container mx-auto mt-4 px-5 flex">
+    <main class="container mx-auto px-5 flex shadow rounded-md py-5 bg-white">
       <%= yield %>
     </main>
   </body>

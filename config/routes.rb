@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   resources :categories, only: [ :index, :new, :create, :edit, :update, :destroy ]
   resource :session
   resources :passwords, param: :token
@@ -13,5 +14,5 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  root "categories#index"
+  root "posts#index"
 end
