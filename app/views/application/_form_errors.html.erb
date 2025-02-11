@@ -1,0 +1,5 @@
+<ul class="list-disc list-inside">
+  <% record.errors.each do |error| %>
+    <li class="text-red-500"><%= error.full_message %></li>
+  <% end %>
+</ul>

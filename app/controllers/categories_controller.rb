@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      redirect_to categories_path, notice: "Kayıt başarılı!"
+      redirect_to categories_path, notice: "Category successfully created"
     else
       render :new, status: :unprocessable_entity
     end
@@ -22,15 +22,18 @@ class CategoriesController < ApplicationController
 
   def update
     if @category.update(category_params)
-      redirect_to categories_path, notice: "Güncellendi"
+      redirect_to categories_path, notice: "Category successfully updated"
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @category.destroy
-    redirect_to categories_path, notice: "Silindi"
+    if @category.destroy
+      redirect_to categories_path, notice: "Category successfully deleted"
+    else
+      redirect_to categories_path, alert: @category.errors.full_messages.join(", ")
+    end
   end
 
   private

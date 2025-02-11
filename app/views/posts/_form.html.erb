@@ -1,9 +1,5 @@
 <%= form_with model: post, class: "flex flex-col gap-4" do |form| %>
-  <ul class="list-disc list-inside">
-    <% post.errors.each do |error| %>
-      <li class="text-red-500"><%= error.full_message %></li>
-    <% end %>
-  </ul>
+  <%= render "form_errors", record: form.object %>
 
   <div class="flex flex-col gap-4">
     <div>
