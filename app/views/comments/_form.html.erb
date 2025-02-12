@@ -1,4 +1,9 @@
-<%= form_with model: [ post, comment ], class: "flex flex-col gap-4" do |form| %>
+<%= form_with model: [ post, comment ],
+            class: "flex flex-col gap-4",
+            data: {
+              controller: "form",
+              action: "turbo:submit-end->form#reset"
+            } do |form| %>
   <%= render "form_errors", record: form.object %>
 
   <div>

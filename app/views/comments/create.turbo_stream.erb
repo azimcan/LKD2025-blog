@@ -1,1 +1,6 @@
 <%= turbo_stream.prepend :comments, @comment %>
+<% turbo_stream.replace :comments_form do %>
+  <%= turbo_frame_tag :comments_form,
+                          src: new_post_comment_path(@post),
+                          loading: :lazy %>
+<% end %>
