@@ -1,0 +1,11 @@
+<%= turbo_stream.append "posts" do %>
+  <%= render @page.records %>
+<% end %>
+
+<%= turbo_stream.update :pagination do %>
+  <% unless @page.last? %>
+    <%= turbo_frame_tag(:pagination, loading: :lazy, src: posts_path(page: @page.next_param, format: :turbo_stream)) do %>
+      Loading...
+    <% end %>
+  <% end %>
+<% end %>

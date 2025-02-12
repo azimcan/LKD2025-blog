@@ -3,7 +3,9 @@ class PostsController < ApplicationController
   before_action :set_post, only: [ :edit, :update, :destroy ]
 
   def index
-    @posts = Post.order(created_at: :desc)
+    posts = Post.order(created_at: :desc)
+
+    set_page_and_extract_portion_from posts, per_page: 2
   end
 
   def show

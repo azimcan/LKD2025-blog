@@ -8,10 +8,16 @@
   </div>
 
   <div id="posts" class="min-w-full flex flex-col gap-4">
-    <% if @posts.any? %>
-      <%= render @posts %>
+    <% if @page.records.any? %>
+      <%= render @page.records %>
     <% else %>
       <p class="text-center my-10">No posts found.</p>
     <% end %>
   </div>
+
+  <% unless @page.last? %>
+    <%= turbo_frame_tag :pagination, src: posts_path(page: @page.next_param, format: :turbo_stream), loading: :lazy do %>
+      Loading...
+    <% end %>
+  <% end %>
 </div>
