@@ -26,10 +26,16 @@
   <div id="<%= dom_id(@post, :comments) %>" class="flex flex-col gap-4">
     <h1 class="font-bold text-xl">Comments</h1>
 
-    <% if @comments.any? %>
-      <%= render @comments %>
-    <% else %>
-      <p class="text-center my-10">No comments found.</p>
-    <% end %>
+    <%= turbo_frame_tag :comments_form,
+                        src: new_post_comment_path(@post),
+                        loading: :lazy %>
+    <div id="comments" class="flex flex-col gap-4">
+      <% if @comments.any? %>
+        <%= render @comments %>
+      <% else %>
+        <p class="text-center my-10">No comments found.</p>
+      <% end %>
+    </div>
+
   </div>
 </div>

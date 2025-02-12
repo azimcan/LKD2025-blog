@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.includes(:comments).find(params[:id])
+    @post = Post.find(params[:id])
     @comments = @post.comments.order(created_at: :desc)
   end
 

@@ -1,9 +1,11 @@
-<div class="flex flex-col gap-4 w-full">
-  <div class="flex justify-between items-center w-full">
-    <h1 class="font-bold text-4xl">Comment New</h1>
+  <div class="flex flex-col gap-4 w-full">
+    <div class="flex justify-between items-center w-full">
+      <h1 class="font-bold text-4xl">Comment New</h1>
 
-    <%= link_to "Back", post_path(@post), class: "rounded-md px-3.5 py-2.5 bg-green-600 hover:bg-green-500 text-white block font-medium" %>
+      <%= link_to "Back", post_path(@post), class: "rounded-md px-3.5 py-2.5 bg-green-600 hover:bg-green-500 text-white block font-medium" %>
+    </div>
+
+    <%= turbo_frame_tag :comments_form do %>
+      <%= render "form", post: @post, comment: @comment %>
+    <% end %>
   </div>
-
-  <%= render "form", post: @post, comment: @comment %>
-</div>
