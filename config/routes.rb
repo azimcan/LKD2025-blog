@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  resources :posts do
-    resources :comments, except: [ :index, :show ]
+  concern :likeable do
+    resource :likes, only: [ :create, :destroy ]
+  end
+
+  resources :posts, concerns: :likeable do
+    resources :comments, except: [ :index, :show ], concerns: :likeable
   end
 
   resources :categories, except: :show

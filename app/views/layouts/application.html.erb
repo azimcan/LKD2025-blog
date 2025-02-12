@@ -24,10 +24,8 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-gray-50" data-controller="hello">
-    <a href="/categories" data-controller="button" data-bridge-title="Categories">
-      View profile
-    </a>
+  <body class="bg-gray-50">
+    <%= turbo_stream_from "general_sockets" %>
 
     <%= render "flash_messages" %>
     <%= render "header" %>
