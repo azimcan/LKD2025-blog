@@ -8,3 +8,9 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+
+[data-bridge-components~="button"]
+[data-controller~="button"] {
+  display: none;
+}

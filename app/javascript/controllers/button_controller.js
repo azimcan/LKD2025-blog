@@ -11,6 +11,7 @@ export default class extends BridgeComponent {
 
     this.send("connect", {title}, () => {
       this.element.click()
+      alert("clicked")
     })
   }
 }
