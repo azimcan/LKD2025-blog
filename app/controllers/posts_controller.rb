@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   def index
     posts = Post.order(created_at: :desc)
 
-    set_page_and_extract_portion_from posts, per_page: 2
+    set_page_and_extract_portion_from posts, per_page: 4
   end
 
   def show
