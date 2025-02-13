@@ -1,7 +1,7 @@
 user = User.create(email_address: "test@test.com", password: "12345678")
 
 5.times do
-  Category.create(name: Faker::Lorem.word)
+  Category.create(title: Faker::Lorem.word)
 end
 
 20.times do
