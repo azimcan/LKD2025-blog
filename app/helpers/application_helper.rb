@@ -1,4 +1,6 @@
 module ApplicationHelper
+  ActionView::Base.default_form_builder = FormBuilder
+
   def likeable_path(likeable)
     case likeable
     when Post

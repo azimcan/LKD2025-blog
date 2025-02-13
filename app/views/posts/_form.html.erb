@@ -3,12 +3,17 @@
 
   <div>
     <%= form.label :title %>
-    <%= form.text_field :title, class: "block shadow-sm rounded-md border outline-hidden px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :title %>
   </div>
 
-  <div>
+  <div data-controller="character-counter" data-character-counter-max-length-value="<%= Post::CONTENT_MAX_LENGTH %>">
     <%= form.label :content %>
-    <%= form.text_area :content, class: "block shadow-sm rounded-md border outline-hidden px-3 py-2 mt-2 w-full" %>
+    <%= form.text_area :content,
+                       data: {
+                        character_counter_target: "input",
+                        action: "input->character-counter#updateCounter"
+                      } %>
+    <div data-character-counter-target="counter" class="text-sm text-gray-500 mt-1"></div>
   </div>
 
   <div>
