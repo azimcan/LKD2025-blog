@@ -64,6 +64,7 @@ group :development do
   gem "web-console"
 
   gem "letter_opener"
+  gem "faker"
 end
 
 group :test do

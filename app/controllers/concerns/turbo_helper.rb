@@ -18,7 +18,7 @@ module TurboHelper
   end
 
   def app_android?
-    request&.user_agent =~ /iPhone/
+    request&.user_agent =~ /Turbo Native Android/
   end
 
   def set_variant
