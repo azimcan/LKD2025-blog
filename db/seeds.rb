@@ -1,4 +1,4 @@
-user = User.create(email: "test@test.com", password: "12345678")
+user = User.create(email_address: "test@test.com", password: "12345678")
 
 5.times do
   Category.create(name: Faker::Lorem.word)
